@@ -1,64 +1,84 @@
-AUTO-CODEX
+# 🚀 AUTO-CODEX (autocodex-gen)
 
-AUTO-CODEX is a CLI-based multi-language code generator that converts a simple idea into working code using MOCK mode or AI-powered generation.
+**Intent-Driven, Multi-Language Code Generator — published on PyPI**
 
----
+AUTO-CODEX is a developer tool that converts **human intent into working code** using a simple CLI.  
+It supports **project initialization**, **multi-language code generation**, and **code improvement**, making it ideal for students, hackathons, rapid prototyping, and AI-assisted development workflows.
 
-Features
-
-- CLI tool (`autocodex`)
-- Intent-based code generation
-- Multi-language support (Python, JavaScript, C, Java)
-- MOCK mode (no API key required)
-- AI mode (OpenAI)
-- Automatic README generation
-- GitHub Actions ready
-- Pip-installable
+🔗 **PyPI:** https://pypi.org/project/autocodex-gen/  
+🔧 **CLI Tool | Python Package | Open Source**
 
 ---
 
-Installation
+##  Key Features
 
-### Development (editable)
+-  **Intent-Driven Development**  
+  Write what you want to build in plain English.
+
+-  **Multi-Language Code Generation**  
+  Generate code for:
+  - Python
+  - JavaScript
+  - C
+  - Java  
+  (Easily extendable)
+
+-  **CLI-Based Workflow**
+  - `init` → setup project
+  - `generate` → create code
+  - `improve` → refactor existing code
+
+-  **Published on PyPI**
+  Installable globally via `pip`.
+
+-  **Modular Architecture**
+  Clean, scalable design for future AI integration.
+
+---
+
+##  Installation
+
 ```bash
-pip install -e .
+pip install autocodex-gen
 ````
 
-After publish
+Verify installation:
 
 ```bash
-pip install autocodex
+autocodex --help
 ```
 
 ---
 
-Usage
+##  Quick Start
 
-Initialize project
+### 1️ Initialize a Project
 
 ```bash
 autocodex init
 ```
 
-Creates:
+Creates the required structure and prepares the workspace.
 
-```
+---
+
+### 2️ Write Your Intent
+
+Edit the file:
+
+```text
 intent/idea.md
 ```
 
-Write your idea inside `idea.md`.
+Example:
 
----
-
-Generate code (default: Python)
-
-```bash
-autocodex generate
+```text
+Build a simple calculator with add, subtract, multiply, and divide functions.
 ```
 
 ---
 
-Multi-Language Generation
+### 3️ Generate Code (Multi-Language)
 
 ```bash
 autocodex generate python
@@ -67,89 +87,107 @@ autocodex generate c
 autocodex generate java
 ```
 
-Generated files:
+Generated files appear in:
 
-* Python → `app.py`
-* JavaScript → `index.js`
-* C → `main.c`
-* Java → `Main.java`
-
----
-
-MOCK MODE
-
-MOCK mode runs by default (no API used).
-
-Force MOCK mode:
-
-```bash
-set MOCK_MODE=true
+```text
+projects/generated_app/
 ```
 
 ---
 
-AI MODE
-
-Set OpenAI key:
-
-Windows
-
-```bat
-set OPENAI_API_KEY=your_api_key_here
-```
-
-Linux / macOS
+### 4️ Improve Existing Code
 
 ```bash
-export OPENAI_API_KEY=your_api_key_here
+autocodex improve
 ```
 
-Then:
-
-```bash
-autocodex generate python
-```
+* Refactors generated code
+* Improves structure
+* Updates documentation automatically
 
 ---
 
-Project Structure
+##  Project Structure
 
-```
+```text
 AUTO-CODEX/
 ├── codex_engine/
 │   ├── cli.py
 │   ├── generate.py
-│   ├── init.py
+│   ├── explain.py
 │   └── improve.py
 ├── intent/
 │   └── idea.md
 ├── projects/
 │   └── generated_app/
 ├── pyproject.toml
-├── requirements.txt
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
-GitHub Actions
+##  How It Works
 
-```bash
-pip install -e .
-autocodex generate
+1. Reads intent from `intent/idea.md`
+2. Detects target language
+3. Generates language-specific starter code
+4. Writes clean, runnable files
+5. Updates documentation automatically
+
+(Mock mode runs locally — AI mode can be plugged in later.)
+
+---
+
+##  Use Cases
+
+*  **Students** — learn code structure quickly
+*  **Hackathons** — rapid MVP generation
+*  **Prototyping** — scaffold ideas fast
+*  **AI Tooling** — base for LLM-powered generators
+*  **Internal Dev Tools** — automate boilerplate creation
+
+---
+
+##  Tech Stack & Skills Demonstrated
+
+* Python Packaging & PyPI Publishing
+* CLI Tooling & Entry Points
+* Modular Software Architecture
+* Automation & Build Pipelines
+* GitHub Actions & CI/CD
+* Cross-Platform Development
+
+---
+
+##  Author
+
+**Varkala Shashidhar**
+
+---
+
+##  License
+
+MIT License — free to use, modify, and distribute.
+
+---
+
+##  Why This Project Matters
+
+AUTO-CODEX is not just a script — it is a **published developer product**.
+It demonstrates real-world software engineering skills, packaging knowledge, and scalable design.
+
+If you’re reviewing this as a recruiter:
+ CLI Tool
+ PyPI Package
+ Modular Architecture
+ Real Distribution Pipeline
+
+---
+*From intent → to code → to product.*
+
 ```
----
-Author
-Varkala Shashidhar
-GitHub: [https://github.com/shashi065](https://github.com/shashi065)
 
----
-License
-MIT License
 
-```
----
-
-That’s it.  
-Paste → save → commit → push 
+Just say the word.
 ```
