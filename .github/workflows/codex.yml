@@ -1,0 +1,57 @@
+name: AUTO-CODEX Generator
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      - name: Run AUTO-CODEX (MOCK MODE)
+        env:
+          MOCK_MODE: true
+        run: |
+          autocodex generate python
+
+      - name: Upload generated project
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated_app
+          path: projects/generated_app
+```
+
+---
+
+AFTER PASTING (IMPORTANT)
+
+Run these commands **once**:
+
+```bash
+git add .github/workflows/codex.yml
+git commit -m "Add AUTO-CODEX GitHub Actions workflow"
+git push
+```
+---
+
+RESULT
+
+* GitHub Actions will **RUN**
+* No more empty workflow
+* `projects/generated_app` will be generated
+* Artifact will be downloadable from Actions UI
