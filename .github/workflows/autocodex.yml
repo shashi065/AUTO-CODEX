@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -18,16 +19,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run AUTO-CODEX (Mock Mode)
-        env:
-          MOCK_MODE: "true"
+      - name: Run AUTO-CODEX generator
         run: |
           python -m codex_engine.generate
-
-      - name: Commit generated files
-        run: |
-          git config user.name "autocodex-bot"
-          git config user.email "bot@autocodex.ai"
-          git add projects/generated_app
-          git commit -m "AUTO-CODEX: regenerate app + README" || echo "No changes"
-          git push
