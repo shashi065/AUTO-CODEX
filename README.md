@@ -187,7 +187,3 @@ If you’re reviewing this as a recruiter:
 *From intent → to code → to product.*
 
 ```
-
-
-Just say the word.
-```
