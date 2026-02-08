@@ -2,14 +2,15 @@ name: AUTO-CODEX Generator
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -17,17 +18,16 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Run AUTO-CODEX (Mock Mode)
+        env:
+          MOCK_MODE: "true"
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python -m codex_engine.generate
 
-      - name: Run AUTO-CODEX generator
+      - name: Commit generated files
         run: |
-          python codex_engine/generate.py
-
-      - name: Upload generated app
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-app
-          path: projects/generated_app/
+          git config user.name "autocodex-bot"
+          git config user.email "bot@autocodex.ai"
+          git add projects/generated_app
+          git commit -m "AUTO-CODEX: regenerate app + README" || echo "No changes"
+          git push
