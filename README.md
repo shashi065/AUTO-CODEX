@@ -1,4 +1,4 @@
-# 🚀 AUTO-CODEX (autocodex-gen)
+#  AUTO-CODEX (autocodex-gen)
 
 **Intent-Driven, Multi-Language Code Generator — published on PyPI**
 
@@ -185,5 +185,3 @@ If you’re reviewing this as a recruiter:
 
 ---
 *From intent → to code → to product.*
-
-```
